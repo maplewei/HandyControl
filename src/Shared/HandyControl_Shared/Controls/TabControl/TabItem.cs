@@ -96,7 +96,10 @@ namespace HandyControl.Controls
         ///     标签容器
         /// </summary>
         internal TabPanel TabPanel { get; set; }
-
+        /// <summary>
+        /// 排除在外的标签（主要用于主页固定显示）
+        /// </summary>
+        public bool IsForeClose { get; set; }
         /// <summary>
         ///     当前编号
         /// </summary>

@@ -334,8 +334,8 @@ namespace HandyControl.Controls
             var enumerator = ((IEnumerable)Items).GetEnumerator();
             while (enumerator.MoveNext())
             {
-                var item = enumerator.Current;
-                if (!Equals(item, currentItem) && item != null)
+                var item = enumerator.Current as TabItem;
+                if (!Equals(item, currentItem) && item != null && !item.IsForeClose)
                 {
                     var argsClosing = new CancelRoutedEventArgs(TabItem.ClosingEvent, item);
                     var elment = item as UIElement;
