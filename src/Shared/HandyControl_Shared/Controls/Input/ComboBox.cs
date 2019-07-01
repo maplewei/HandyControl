@@ -43,10 +43,14 @@ namespace HandyControl.Controls
         {
             CommandBindings.Add(new CommandBinding(ControlCommands.Clear, (s, e) =>
             {
-                ClearValue(SelectedValueProperty);
-                ClearValue(SelectedItemProperty);
-                ClearValue(SelectedIndexProperty);
-                ClearValue(TextProperty);
+                this.SelectedValue = null;
+                this.SelectedItem = null;
+                this.Text = null;
+                this.SelectedIndex = -1;
+                //ClearValue(SelectedValueProperty);
+                //ClearValue(SelectedItemProperty);
+                //ClearValue(SelectedIndexProperty);
+                //ClearValue(TextProperty);
             }));
         }
 
