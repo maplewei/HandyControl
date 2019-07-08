@@ -1132,7 +1132,7 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 推荐 的本地化字符串。
+        ///   查找类似 群友推荐 的本地化字符串。
         /// </summary>
         public static string Recommendation {
             get {
@@ -1407,6 +1407,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string TextDialog {
             get {
                 return ResourceManager.GetString("TextDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文本对话框，带计时器 的本地化字符串。
+        /// </summary>
+        public static string TextDialogWithTimer {
+            get {
+                return ResourceManager.GetString("TextDialogWithTimer", resourceCulture);
             }
         }
         
