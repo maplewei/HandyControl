@@ -33,6 +33,32 @@ namespace HandyControl.Controls
             VisibilityProperty.OverrideMetadata(typeof(GifImage), new PropertyMetadata(default(Visibility), OnVisibilityChanged));
         }
 
+        public static readonly DependencyProperty UriProperty = DependencyProperty.Register(
+            "Uri", typeof(Uri), typeof(GifImage), new PropertyMetadata(default(Uri), OnUriChanged));
+
+        private static void OnUriChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var ctl = (GifImage) d;
+            ctl.StopAnimate();
+
+            if (e.NewValue != null)
+            {
+                var v = (Uri)e.NewValue;
+                ctl.GetGifStreamFromPack(v);
+                ctl.StartAnimate();
+            }
+            else
+            {
+                ctl.Source = null;
+            }
+        }
+
+        public Uri Uri
+        {
+            get => (Uri) GetValue(UriProperty);
+            set => SetValue(UriProperty, value);
+        }
+
         private static void OnVisibilityChanged(DependencyObject s, DependencyPropertyChangedEventArgs e)
         {
             var ctl = (GifImage)s;
@@ -56,13 +82,19 @@ namespace HandyControl.Controls
                 if (DesignerProperties.GetIsInDesignMode(this)) return;
                 if (_isLoaded) return;
                 _isLoaded = true;
-                if (Source is BitmapImage image)
+                if (Uri != null)
                 {
-                    var uri = image.UriSource;
-                    GetGifStreamFromPack(uri);
+                    GetGifStreamFromPack(Uri);
+                    StartAnimate();
+                }
+                else if (Source is BitmapImage image)
+                {
+                    GetGifStreamFromPack(image.UriSource);
                     StartAnimate();
                 }
             };
+
+            Unloaded += (s, e) => Dispose();
         }
 
         public GifImage(string filename)

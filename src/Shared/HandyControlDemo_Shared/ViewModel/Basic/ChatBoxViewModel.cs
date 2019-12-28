@@ -88,7 +88,7 @@ namespace HandyControlDemo.ViewModel
                 {
                     new ImageBrowser(new Uri(info.Enclosure.ToString()))
                     {
-                        Owner = VisualHelper.GetActiveWindow()
+                        Owner = WindowHelper.GetActiveWindow()
                     }.Show();
                 }
                 else if (info.Type == ChatMessageType.Audio)
@@ -134,8 +134,9 @@ namespace HandyControlDemo.ViewModel
             }
 
             var cachePath = $"{AudioCachePath}\\{Guid.NewGuid().ToString()}";
+            var cachePathWithQuotes = $"\"{cachePath}\"";
             ExternDllHelper.MciSendString("stop movie", "", 0, 0);
-            ExternDllHelper.MciSendString($"save movie {cachePath}", "", 0, 0);
+            ExternDllHelper.MciSendString($"save movie {cachePathWithQuotes}", "", 0, 0);
             ExternDllHelper.MciSendString("close movie", "", 0, 0);
 
             _stopwatch.Stop();

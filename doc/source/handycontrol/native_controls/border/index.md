@@ -6,7 +6,7 @@ title: Border 边框
 
 此样式用于包裹一个控件区域，配合基础xaml定义中的几个DropShadowEffect资源可制作如下效果：
 
-![Border](https://raw.githubusercontent.com/NaBian/HandyControl/master/Resources/Border.png)
+![Border](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Resources/Border.png)
 
 以上效果的xaml代码如下：
 
@@ -65,7 +65,7 @@ title: Border 边框
     <Ellipse Margin="5,0" Fill="OrangeRed" Width="20" Height="20"/>
 </StackPanel>
 {% endcode %}
-![BorderVerticallySplitter](../images/BorderVerticallySplitter_1.png)
+![BorderVerticallySplitter](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/BorderVerticallySplitter_1.png)
 {% endnote %}
 
 # BorderHorizontallySplitter
@@ -88,7 +88,7 @@ title: Border 边框
     <Ellipse Margin="0,5" Fill="OrangeRed" Width="20" Height="20"/>
 </StackPanel>
 {% endcode %}
-![BorderHorizontallySplitter](../images/BorderHorizontallySplitter_1.png)
+![BorderHorizontallySplitter](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/BorderHorizontallySplitter_1.png)
 {% endnote %}
 
 # BorderCircular
@@ -101,7 +101,7 @@ title: Border 边框
 {% code %}
 <Border Style="{StaticResource BorderCircular}" Background="OrangeRed" Width="100" Height="100"/>
 {% endcode %}
-![BorderCircular](../images/BorderCircular_1.png)
+![BorderCircular](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/BorderCircular_1.png)
 {% endnote %}
 
 # BorderClip
@@ -116,5 +116,5 @@ title: Border 边框
     <Image Source="/HandyControlDemo;component/Resources/Img/Album/2.jpg"/>
 </Border>
 {% endcode %}
-![BorderClip](../images/BorderClip_1.png)
+![BorderClip](https://raw.githubusercontent.com/HandyOrg/HandyOrgResource/master/HandyControl/Doc/native_controls/BorderClip_1.png)
 {% endnote %}

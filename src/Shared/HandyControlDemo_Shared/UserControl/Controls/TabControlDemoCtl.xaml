@@ -17,13 +17,13 @@
             <StackPanel>
                 <Label Style="{StaticResource LabelPrimary}" Content="Default" Margin="32,32,0,0" HorizontalAlignment="Left"/>
                 <hc:TabControl ShowOverflowButton="False" ShowScrollButton="True" Margin="32,16,32,0" Width="800" Height="300" IsScrollable="True">
-                    <hc:TabItem Header="TabItem1">
-                        <hc:SimplePanel Background="White"/>
+                    <hc:TabItem Header="TabItem1" IsSelected="True">
+                        <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
                     <hc:TabItem Header="TabItem2">
                         <hc:SimplePanel Background="{DynamicResource DarkDangerBrush}"/>
                     </hc:TabItem>
-                    <hc:TabItem Header="TabItem3" IsSelected="True">
+                    <hc:TabItem Header="TabItem3">
                         <hc:SimplePanel Background="{DynamicResource PrimaryBrush}"/>
                     </hc:TabItem>
                     <hc:TabItem Header="TabItem4">
@@ -45,12 +45,12 @@
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsDraggable = True"/>
                     <Label Style="{StaticResource LabelPrimary}" Margin="16,0,0,0" Content="IsEnableAnimation = True"/>
                 </StackPanel>
-                <hc:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
+                <hc:TabControl x:Name="TabControlDemo" IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" IsEnableTabFill="True" Margin="32,0,32,32" Width="800" Height="300">
                     <hc:TabItem Header="TabItem1">
-                        <hc:SimplePanel Background="White"/>
+                        <hc:SimplePanel Background="{DynamicResource RegionBrush}"/>
                     </hc:TabItem>
                     <hc:TabItem IsSelected="True" Header="TabItem2">
-                        <hc:SimplePanel Background="#FFE8563F"/>
+                        <hc:SimplePanel Tag="123" Background="#FFE8563F"/>
                     </hc:TabItem>
                     <hc:TabItem Header="TabItem3">
                         <hc:SimplePanel Background="#FF3F4EE8"/>
@@ -67,6 +67,18 @@
                     <hc:TabItem Header="TabItem7">
                         <hc:SimplePanel Background="#FFE8E03F"/>
                     </hc:TabItem>
+                </hc:TabControl>
+                <hc:TabControl IsEnableAnimation="True" ShowCloseButton="True" IsDraggable="True" ItemsSource="{Binding DataList}" Width="800" Height="300">
+                    <TabControl.ItemTemplate>
+                        <DataTemplate>
+                            <TextBlock Text="{Binding Header}"/>
+                        </DataTemplate>
+                    </TabControl.ItemTemplate>
+                    <TabControl.ContentTemplate>
+                        <DataTemplate>
+                            <hc:SimplePanel HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Background="{Binding BackgroundToken,Converter={StaticResource String2BrushConverter}}"/>
+                        </DataTemplate>
+                    </TabControl.ContentTemplate>
                 </hc:TabControl>
             </StackPanel>
         </hc:ScrollViewer>

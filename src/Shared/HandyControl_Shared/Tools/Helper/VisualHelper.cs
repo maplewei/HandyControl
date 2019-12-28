@@ -1,10 +1,12 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Windows;
+using System.Windows.Interop;
 using System.Windows.Media;
 
 namespace HandyControl.Tools
 {
-    public class VisualHelper
+    public static class VisualHelper
     {
         internal static VisualStateGroup TryGetVisualStateGroup(DependencyObject d, string groupName)
         {
@@ -27,7 +29,7 @@ namespace HandyControl.Tools
                 : null;
         }
 
-        internal static T GetChild<T>(DependencyObject d) where T : DependencyObject
+        public static T GetChild<T>(DependencyObject d) where T : DependencyObject
         {
             if (d is T t)
             {
@@ -45,10 +47,7 @@ namespace HandyControl.Tools
             return default;
         }
 
-        /// <summary>
-        ///     获取当前应用中处于激活的一个窗口
-        /// </summary>
-        /// <returns></returns>
-        public static Window GetActiveWindow() => Application.Current.Windows.OfType<Window>().SingleOrDefault(x => x.IsActive);
+        public static IntPtr GetHandle(this Visual visual) =>
+            (PresentationSource.FromVisual(visual) as HwndSource)?.Handle ?? IntPtr.Zero;
     }
 }

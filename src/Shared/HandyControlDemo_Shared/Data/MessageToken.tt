@@ -51,10 +51,20 @@ var controlList = new List<string>
 	"DialogDemoCtl",
 	"SideMenuDemoCtl",
 	"GridDemoCtl",
+	"PoptipDemoCtl",
 	"RangeSliderDemoCtl",
 	"ButtonGroupDemoCtl",
 	"CardDemoCtl",
-	"MagnifierDemoCtl"
+	"MagnifierDemoCtl",
+	"ImageBlockDemoCtl",
+	"RunningBlockDemoCtl",
+	"HoneycombPanelDemoCtl",
+	"SpriteDemoCtl",
+	"NotificationDemoCtl",
+	"FloatingBlockDemoCtl",
+	"SplitButtonDemoCtl",
+	"DividerDemoCtl",
+	"TransitioningContentControlDemoCtl"
 };
 var styleList = new List<string>
 {
@@ -87,6 +97,11 @@ var styleList = new List<string>
 	"ToolBarDemoCtl",
 	"LabelDemoCtl"
 };
+var toolList = new List<string>
+{
+	"HatchBrushGeneratorDemoCtl",
+	"GeometryAnimationDemoCtl"
+};
 var windowList = new List<string>
 {
 	"CommonWindow",
@@ -104,26 +119,43 @@ var messageList = new List<string>
 	"MainWindow",
 	"OverView",
 	"ProjectsView",
-	"BlogsView"
+	"BlogsView",
+	"WebsitesView",
+	"NotifyIconDemo",
+	"NotifyIconContextDemo"
 };
 #>
 namespace HandyControlDemo.Data
 {
 	public class MessageToken
     {
+		/*-------------------- Controls --------------------*/
+
     <#foreach(var item in controlList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 	
     <#}#>
-<#foreach(var item in styleList){#>
+	/*-------------------- Tools --------------------*/
+
+	<#foreach(var item in toolList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>
-<#foreach(var item in windowList){#>
+	/*-------------------- Styles --------------------*/
+
+	<#foreach(var item in styleList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>
-<#foreach(var item in messageList){#>
+	/*-------------------- Windows --------------------*/
+
+	<#foreach(var item in windowList){#>
+    public static readonly string <#=item#> = nameof(<#=item#>);
+
+    <#}#>
+	/*-------------------- Messages --------------------*/
+
+	<#foreach(var item in messageList){#>
     public static readonly string <#=item#> = nameof(<#=item#>);
 
     <#}#>

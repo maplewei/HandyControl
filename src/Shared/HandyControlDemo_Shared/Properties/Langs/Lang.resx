@@ -600,6 +600,9 @@
   <data name="ResponsiveLayout" xml:space="preserve">
     <value>响应式布局</value>
   </data>
+  <data name="Poptip" xml:space="preserve">
+    <value>气泡提示</value>
+  </data>
   <data name="Recommendation" xml:space="preserve">
     <value>群友推荐</value>
   </data>
@@ -629,5 +632,83 @@
   </data>
   <data name="Magnifier" xml:space="preserve">
     <value>放大镜</value>
+  </data>
+  <data name="ImageBlock" xml:space="preserve">
+    <value>图片块</value>
+  </data>
+  <data name="RunningBlock" xml:space="preserve">
+    <value>滚动块</value>
+  </data>
+  <data name="HoneycombPanel" xml:space="preserve">
+    <value>蜂窝布局</value>
+  </data>
+  <data name="AddItem" xml:space="preserve">
+    <value>添加项</value>
+  </data>
+  <data name="RemoveItem" xml:space="preserve">
+    <value>删除项</value>
+  </data>
+  <data name="Sprite" xml:space="preserve">
+    <value>精灵</value>
+  </data>
+  <data name="OpenSprite" xml:space="preserve">
+    <value>打开精灵</value>
+  </data>
+  <data name="Notification" xml:space="preserve">
+    <value>桌面通知</value>
+  </data>
+  <data name="SendNotification" xml:space="preserve">
+    <value>发送通知</value>
+  </data>
+  <data name="StaysOpen" xml:space="preserve">
+    <value>保持打开</value>
+  </data>
+  <data name="FloatingBlock" xml:space="preserve">
+    <value>漂浮块</value>
+  </data>
+  <data name="SplitButton" xml:space="preserve">
+    <value>分割按钮</value>
+  </data>
+  <data name="Tools" xml:space="preserve">
+    <value>工具</value>
+  </data>
+  <data name="HatchBrushGenerator" xml:space="preserve">
+    <value>阴影画笔生成器</value>
+  </data>
+  <data name="Morphing Animation" xml:space="preserve">
+    <value>变形动画</value>
+  </data>
+  <data name="Divider" xml:space="preserve">
+    <value>分割线</value>
+  </data>
+  <data name="PoptipPositionStr" xml:space="preserve">
+    <value>上左;上边;上右;右上;右边;右下;下右;下边;下左;左下;左边;左上</value>
+  </data>
+  <data name="TransitioningContentControl" xml:space="preserve">
+    <value>内容过渡控件</value>
+  </data>
+  <data name="Drawer" xml:space="preserve">
+    <value>抽屉</value>
+  </data>
+  <data name="Documentation" xml:space="preserve">
+    <value>文献资料</value>
+  </data>
+  <data name="Effects" xml:space="preserve">
+    <value>效果</value>
+  </data>
+  <data name="Website" xml:space="preserve">
+    <value>网站</value>
+  </data>
+  <data name="Vsix" xml:space="preserve">
+    <value>VS 插件</value>
+  </data>
+  <data name="Doc_en" xml:space="preserve">
+    <value>英文文档</value>
+  </data>
+  <data name="Doc_cn" xml:space="preserve">
+    <value>中文文档</value>
+  </data>
+  <data name="Demo" xml:space="preserve">
+    <value>示例</value>
   </data>
 </root>
