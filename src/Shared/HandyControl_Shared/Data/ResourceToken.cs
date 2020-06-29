@@ -302,6 +302,12 @@
 
         internal const string WindowWin10 = nameof(WindowWin10);
 
+        internal const string WindowBlur = nameof(WindowBlur);
+
+        internal const string WindowGlow = nameof(WindowGlow);
+
+        internal const string Window4ScreenshotStyle = nameof(Window4ScreenshotStyle);
+
         internal const string AddTagButtonStyle = nameof(AddTagButtonStyle);
 
         internal const string RadioGroupItemDefault = nameof(RadioGroupItemDefault);
@@ -351,7 +357,19 @@
         internal const string TabItemCapsuleVerticalFirst = nameof(TabItemCapsuleVerticalFirst);
 
         internal const string TabItemCapsuleVerticalLast = nameof(TabItemCapsuleVerticalLast);
-        
+
+        internal const string ComboBoxItemCapsuleDefault = nameof(ComboBoxItemCapsuleDefault);
+
+        internal const string ComboBoxItemCapsuleSingle = nameof(ComboBoxItemCapsuleSingle);
+
+        internal const string ComboBoxItemCapsuleHorizontalFirst = nameof(ComboBoxItemCapsuleHorizontalFirst);
+
+        internal const string ComboBoxItemCapsuleHorizontalLast = nameof(ComboBoxItemCapsuleHorizontalLast);
+
+        internal const string ComboBoxItemCapsuleVerticalFirst = nameof(ComboBoxItemCapsuleVerticalFirst);
+
+        internal const string ComboBoxItemCapsuleVerticalLast = nameof(ComboBoxItemCapsuleVerticalLast);
+
         #endregion
     }
 }

@@ -145,7 +145,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetShowCloseButton(DependencyObject element, bool value)
-            => element.SetValue(ShowCloseButtonProperty, value);
+            => element.SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowCloseButton(DependencyObject element)
             => (bool)element.GetValue(ShowCloseButtonProperty);
@@ -173,11 +173,11 @@ namespace HandyControl.Controls
         public bool ShowContextMenu
         {
             get => (bool) GetValue(ShowContextMenuProperty);
-            set => SetValue(ShowContextMenuProperty, value);
+            set => SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
         }
 
         public static void SetShowContextMenu(DependencyObject element, bool value)
-            => element.SetValue(ShowContextMenuProperty, value);
+            => element.SetValue(ShowContextMenuProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowContextMenu(DependencyObject element)
             => (bool)element.GetValue(ShowContextMenuProperty);
@@ -251,6 +251,8 @@ namespace HandyControl.Controls
         protected override void OnMouseRightButtonDown(MouseButtonEventArgs e)
         {
             base.OnMouseRightButtonDown(e);
+
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             IsSelected = true;
             Focus();
         }
@@ -278,14 +280,14 @@ namespace HandyControl.Controls
             RaiseEvent(argsClosing);
             if (argsClosing.Cancel) return;
 
-            TabPanel.SetCurrentValue(TabPanel.FluidMoveDurationProperty, parent.IsEnableAnimation
+            TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, parent.IsAnimationEnabled
                     ? new Duration(TimeSpan.FromMilliseconds(200))
                     : new Duration(TimeSpan.FromMilliseconds(1)));
             
             parent.IsInternalAction = true;
             RaiseEvent(new RoutedEventArgs(ClosedEvent, item));
 
-            var list = parent.GetActuaList();
+            var list = parent.GetActualList();
             list?.Remove(item);
         }
 
@@ -293,13 +295,14 @@ namespace HandyControl.Controls
         {
             base.OnMouseLeftButtonDown(e);
 
+            if (VisualTreeHelper.HitTest(this, e.GetPosition(this)) == null) return;
             var parent = TabControlParent;
             if (parent == null) return;
 
             if (parent.IsDraggable && !ItemIsDragging && !_isDragging)
             {
                 parent.UpdateScroll();
-                TabPanel.FluidMoveDuration = new Duration(TimeSpan.FromSeconds(0));
+                TabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromSeconds(0)));
                 _mouseDownOffsetX = RenderTransform.Value.OffsetX;
                 _scrollHorizontalOffset = parent.GetHorizontalOffset();
                 var mx = TranslatePoint(new Point(), parent).X + _scrollHorizontalOffset;
@@ -392,7 +395,7 @@ namespace HandyControl.Controls
                 RenderTransform = new TranslateTransform(resultX, 0);
                 if (index == -1) return;
 
-                var list = parent.GetActuaList();
+                var list = parent.GetActualList();
                 if (list == null) return;
 
                 var item = parent.ItemContainerGenerator.ItemFromContainer(this);
@@ -404,6 +407,7 @@ namespace HandyControl.Controls
                 list.Remove(item);
                 parent.IsInternalAction = true;
                 list.Insert(index, item);
+                _tabPanel.SetValue(TabPanel.FluidMoveDurationPropertyKey, new Duration(TimeSpan.FromMilliseconds(0)));
                 TabPanel.CanUpdate = true;
                 TabPanel.ForceUpdate = true;
                 TabPanel.Measure(new Size(TabPanel.DesiredSize.Width, ActualHeight));
@@ -419,7 +423,7 @@ namespace HandyControl.Controls
             }
 
             TargetOffsetX = resultX;
-            if (!parent.IsEnableAnimation)
+            if (!parent.IsAnimationEnabled)
             {
                 AnimationCompleted();
                 return;

@@ -1,19 +1,4 @@
 ﻿using System.Windows.Markup;
-#if !Core
-using System.Reflection;
-using System.Runtime.InteropServices;
-
-[assembly: AssemblyTitle("HandyControl")]
-[assembly: AssemblyDescription("Contains some commonly used simple WPF controls")]
-[assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("HandyControl")]
-[assembly: AssemblyCopyright("Copyright © HandyOrg 2018-2019")]
-[assembly: AssemblyTrademark("")]
-[assembly: AssemblyCulture("")]
-[assembly: ComVisible(false)]
-[assembly: AssemblyVersion("2.4.0")]
-#endif
 
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Controls")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Tools")]
@@ -25,4 +10,5 @@ using System.Runtime.InteropServices;
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Media.Effects")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Data")]
 [assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Properties.Langs")]
+[assembly: XmlnsDefinition("https://handyorg.github.io/handycontrol", "HandyControl.Themes")]
 [assembly: XmlnsPrefix("https://handyorg.github.io/handycontrol", "hc")]

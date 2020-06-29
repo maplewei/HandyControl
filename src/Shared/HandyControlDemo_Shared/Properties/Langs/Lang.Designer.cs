@@ -628,6 +628,51 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 流文档 的本地化字符串。
+        /// </summary>
+        public static string FlowDocument {
+            get {
+                return ResourceManager.GetString("FlowDocument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档单页视图 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentPageViewer {
+            get {
+                return ResourceManager.GetString("FlowDocumentPageViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档查看器 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentReader {
+            get {
+                return ResourceManager.GetString("FlowDocumentReader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 流文档滚动视图 的本地化字符串。
+        /// </summary>
+        public static string FlowDocumentScrollViewer {
+            get {
+                return ResourceManager.GetString("FlowDocumentScrollViewer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 导航框架 的本地化字符串。
+        /// </summary>
+        public static string Frame {
+            get {
+                return ResourceManager.GetString("Frame", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Gif图片 的本地化字符串。
         /// </summary>
         public static string GifImage {
@@ -806,7 +851,18 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("ImageBrowser", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 图片选择器 的本地化字符串。
+        /// </summary>
+        public static string ImageSelector
+        {
+            get
+            {
+                return ResourceManager.GetString("ImageSelector", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 索引 的本地化字符串。
         /// </summary>
@@ -849,6 +905,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string Label {
             get {
                 return ResourceManager.GetString("Label", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 查找类似 {0} 的本地化字符串。 的本地化字符串。
+        /// </summary>
+        public static string LangComment {
+            get {
+                return ResourceManager.GetString("LangComment", resourceCulture);
             }
         }
         
@@ -1042,6 +1107,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 点击打开辉光窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenGlowWindow {
+            get {
+                return ResourceManager.GetString("OpenGlowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 点击打开图片浏览器 的本地化字符串。
         /// </summary>
         public static string OpenImageBrowser {
@@ -1065,6 +1139,24 @@ namespace HandyControlDemo.Properties.Langs {
         public static string OpenMouseFollowWindow {
             get {
                 return ResourceManager.GetString("OpenMouseFollowWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开原生常规窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenNativeCommonWindow {
+            get {
+                return ResourceManager.GetString("OpenNativeCommonWindow", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 点击打开导航窗口 的本地化字符串。
+        /// </summary>
+        public static string OpenNavigationWindow {
+            get {
+                return ResourceManager.GetString("OpenNavigationWindow", resourceCulture);
             }
         }
         
@@ -1105,15 +1197,6 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
-        ///   查找类似 概览 的本地化字符串。
-        /// </summary>
-        public static string Overview {
-            get {
-                return ResourceManager.GetString("Overview", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 页码条 的本地化字符串。
         /// </summary>
         public static string Pagination {
@@ -1128,6 +1211,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string PasswordBox {
             get {
                 return ResourceManager.GetString("PasswordBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PIN码框 的本地化字符串。
+        /// </summary>
+        public static string PinBox {
+            get {
+                return ResourceManager.GetString("PinBox", resourceCulture);
             }
         }
         
@@ -1195,6 +1287,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 实用例子 的本地化字符串。
+        /// </summary>
+        public static string PracticalDemos {
+            get {
+                return ResourceManager.GetString("PracticalDemos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 上一步 的本地化字符串。
         /// </summary>
         public static string Prev {
@@ -1247,7 +1348,18 @@ namespace HandyControlDemo.Properties.Langs {
                 return ResourceManager.GetString("Project", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   查找类似 属性编辑器 的本地化字符串。
+        /// </summary>
+        public static string PropertyGrid
+        {
+            get
+            {
+                return ResourceManager.GetString("PropertyGrid", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   查找类似 按住说话 的本地化字符串。
         /// </summary>
@@ -1402,6 +1514,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 截图 的本地化字符串。
+        /// </summary>
+        public static string Screenshot {
+            get {
+                return ResourceManager.GetString("Screenshot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 滚动视图 的本地化字符串。
         /// </summary>
         public static string ScrollViewer {
@@ -1519,6 +1640,15 @@ namespace HandyControlDemo.Properties.Langs {
         }
         
         /// <summary>
+        ///   查找类似 开始截图 的本地化字符串。
+        /// </summary>
+        public static string StartScreenshot {
+            get {
+                return ResourceManager.GetString("StartScreenshot", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 保持打开 的本地化字符串。
         /// </summary>
         public static string StaysOpen {
@@ -1623,6 +1753,15 @@ namespace HandyControlDemo.Properties.Langs {
         public static string TextDialog {
             get {
                 return ResourceManager.GetString("TextDialog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 文本对话框（控件中） 的本地化字符串。
+        /// </summary>
+        public static string TextDialogInControl {
+            get {
+                return ResourceManager.GetString("TextDialogInControl", resourceCulture);
             }
         }
         

@@ -13,7 +13,7 @@ namespace HandyControl.Controls
             "IsDragElement", typeof(bool), typeof(WindowAttach), new PropertyMetadata(ValueBoxes.FalseBox, OnIsDragElementChanged));
 
         public static void SetIsDragElement(DependencyObject element, bool value)
-            => element.SetValue(IsDragElementProperty, value);
+            => element.SetValue(IsDragElementProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetIsDragElement(DependencyObject element)
             => (bool) element.GetValue(IsDragElementProperty);
@@ -68,7 +68,7 @@ namespace HandyControl.Controls
         }
 
         public static void SetIgnoreAltF4(DependencyObject element, bool value)
-            => element.SetValue(IgnoreAltF4Property, value);
+            => element.SetValue(IgnoreAltF4Property, ValueBoxes.BooleanBox(value));
 
         public static bool GetIgnoreAltF4(DependencyObject element)
             => (bool) element.GetValue(IgnoreAltF4Property);
@@ -80,7 +80,10 @@ namespace HandyControl.Controls
         {
             if (d is System.Windows.Window window)
             {
-                if ((bool)e.NewValue)
+                var v = (bool) e.NewValue;
+                window.SetCurrentValue(System.Windows.Window.ShowInTaskbarProperty, v);
+
+                if (v)
                 {
                     window.SourceInitialized -= Window_SourceInitialized;
                 }
@@ -97,13 +100,13 @@ namespace HandyControl.Controls
             {
                 var _ = new WindowInteropHelper(window)
                 {
-                    Owner = NativeMethods.GetDesktopWindow()
+                    Owner = InteropMethods.GetDesktopWindow()
                 };
             }
         }
 
         public static void SetShowInTaskManager(DependencyObject element, bool value)
-            => element.SetValue(ShowInTaskManagerProperty, value);
+            => element.SetValue(ShowInTaskManagerProperty, ValueBoxes.BooleanBox(value));
 
         public static bool GetShowInTaskManager(DependencyObject element)
             => (bool) element.GetValue(ShowInTaskManagerProperty);

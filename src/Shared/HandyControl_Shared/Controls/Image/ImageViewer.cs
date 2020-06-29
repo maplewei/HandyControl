@@ -8,6 +8,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
+using System.Windows.Threading;
 using HandyControl.Data;
 using HandyControl.Interactivity;
 using HandyControl.Properties.Langs;
@@ -157,6 +158,8 @@ namespace HandyControl.Controls
         /// </summary>
         private bool _showBorderBottom;
 
+        private DispatcherTimer _dispatcher;
+
         #endregion Data
 
         #region ctor
@@ -268,13 +271,13 @@ namespace HandyControl.Controls
         public bool IsFullScreen
         {
             get => (bool)GetValue(IsFullScreenProperty);
-            set => SetValue(IsFullScreenProperty, value);
+            set => SetValue(IsFullScreenProperty, ValueBoxes.BooleanBox(value));
         }
 
         public bool ShowImgMap
         {
             get => (bool)GetValue(ShowImgMapProperty);
-            set => SetValue(ShowImgMapProperty, value);
+            set => SetValue(ShowImgMapProperty, ValueBoxes.BooleanBox(value));
         }
 
         public BitmapFrame ImageSource
@@ -307,7 +310,7 @@ namespace HandyControl.Controls
         internal bool ShowFullScreenButton
         {
             get => (bool)GetValue(ShowFullScreenButtonProperty);
-            set => SetValue(ShowFullScreenButtonProperty, value);
+            set => SetValue(ShowFullScreenButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         internal Thickness ImageMargin
@@ -349,7 +352,7 @@ namespace HandyControl.Controls
         internal bool ShowSmallImgInternal
         {
             get => (bool)GetValue(ShowSmallImgInternalProperty);
-            set => SetValue(ShowSmallImgInternalProperty, value);
+            set => SetValue(ShowSmallImgInternalProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -368,7 +371,7 @@ namespace HandyControl.Controls
         internal bool ShowCloseButton
         {
             get => (bool)GetValue(ShowCloseButtonProperty);
-            set => SetValue(ShowCloseButtonProperty, value);
+            set => SetValue(ShowCloseButtonProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -444,6 +447,18 @@ namespace HandyControl.Controls
         {
             if (ImageSource == null || !IsLoaded) return;
 
+            if (ImageSource.IsDownloading)
+            {
+                _dispatcher = new DispatcherTimer(DispatcherPriority.ApplicationIdle)
+                {
+                    Interval = TimeSpan.FromSeconds(1)
+                };
+                _dispatcher.Tick += Dispatcher_Tick;
+                _dispatcher.Start();
+
+                return;
+            }
+
             double width;
             double height;
 
@@ -493,6 +508,25 @@ namespace HandyControl.Controls
             _imgActualMargin = ImageMargin;
 
             InitBorderSmall();
+        }
+
+        private void Dispatcher_Tick(object sender, EventArgs e)
+        {
+            if (ImageSource == null || !IsLoaded)
+            {
+                _dispatcher.Stop();
+                _dispatcher.Tick -= Dispatcher_Tick;
+                _dispatcher = null;
+                return;
+            }
+
+            if (!ImageSource.IsDownloading)
+            {
+                _dispatcher.Stop();
+                _dispatcher.Tick -= Dispatcher_Tick;
+                _dispatcher = null;
+                Init();
+            }
         }
 
         private void ButtonActual_OnClick(object sender, RoutedEventArgs e)

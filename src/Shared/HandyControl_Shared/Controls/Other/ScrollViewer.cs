@@ -44,14 +44,14 @@ namespace HandyControl.Controls
         public bool CanMouseWheel
         {
             get => (bool) GetValue(CanMouseWheelProperty);
-            set => SetValue(CanMouseWheelProperty, value);
+            set => SetValue(CanMouseWheelProperty, ValueBoxes.BooleanBox(value));
         }
 
         protected override void OnMouseWheel(MouseWheelEventArgs e)
         {
             if (!CanMouseWheel) return;
 
-            if (!IsEnableInertia)
+            if (!IsInertiaEnabled)
             {
                 if (Orientation == Orientation.Vertical)
                 {
@@ -142,26 +142,20 @@ namespace HandyControl.Controls
         /// <summary>
         ///     是否支持惯性
         /// </summary>
-        public static readonly DependencyProperty IsEnableInertiaProperty = DependencyProperty.RegisterAttached(
-            "IsEnableInertia", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
+        public static readonly DependencyProperty IsInertiaEnabledProperty = DependencyProperty.RegisterAttached(
+            "IsInertiaEnabled", typeof(bool), typeof(ScrollViewer), new PropertyMetadata(ValueBoxes.FalseBox));
 
-        public static void SetIsEnableInertia(DependencyObject element, bool value)
-        {
-            element.SetValue(IsEnableInertiaProperty, value);
-        }
+        public static void SetIsInertiaEnabled(DependencyObject element, bool value) => element.SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsEnableInertia(DependencyObject element)
-        {
-            return (bool)element.GetValue(IsEnableInertiaProperty);
-        }
+        public static bool GetIsInertiaEnabled(DependencyObject element) => (bool)element.GetValue(IsInertiaEnabledProperty);
 
         /// <summary>
         ///     是否支持惯性
         /// </summary>
-        public bool IsEnableInertia
+        public bool IsInertiaEnabled
         {
-            get => (bool) GetValue(IsEnableInertiaProperty);
-            set => SetValue(IsEnableInertiaProperty, value);
+            get => (bool) GetValue(IsInertiaEnabledProperty);
+            set => SetValue(IsInertiaEnabledProperty, ValueBoxes.BooleanBox(value));
         }
 
         /// <summary>
@@ -176,18 +170,12 @@ namespace HandyControl.Controls
         public bool IsPenetrating
         {
             get => (bool) GetValue(IsPenetratingProperty);
-            set => SetValue(IsPenetratingProperty, value);
+            set => SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
         }
 
-        public static void SetIsPenetrating(DependencyObject element, bool value)
-        {
-            element.SetValue(IsPenetratingProperty, value);
-        }
+        public static void SetIsPenetrating(DependencyObject element, bool value) => element.SetValue(IsPenetratingProperty, ValueBoxes.BooleanBox(value));
 
-        public static bool GetIsPenetrating(DependencyObject element)
-        {
-            return (bool) element.GetValue(IsPenetratingProperty);
-        }
+        public static bool GetIsPenetrating(DependencyObject element) => (bool) element.GetValue(IsPenetratingProperty);
 
         /// <summary>
         ///     当前垂直滚动偏移
