@@ -3,7 +3,7 @@
     <UseWPF>true</UseWPF>
     <AssemblyName>HandyControlDemoCode</AssemblyName>
     <RootNamespace>HandyControlDemoCode</RootNamespace>
-    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net50</TargetFrameworks>
+    <TargetFrameworks>netcoreapp3.0;netcoreapp3.1;net40;net45;net462;net47;net48;net5.0</TargetFrameworks>
   </PropertyGroup>
   <ItemGroup>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\Window\AboutWindow.xaml">
@@ -71,6 +71,9 @@
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\ChatBubbleDemoCtl.xaml">
       <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml</Link>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml">
+      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml</Link>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml">
       <Link>UserControl\Controls\CirclePanelDemoCtl.xaml</Link>
@@ -273,6 +276,9 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml">
       <Link>UserControl\Styles\FrameDemoCtl.xaml</Link>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml">
+      <Link>UserControl\Styles\GeometryDemoCtl.xaml</Link>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml">
       <Link>UserControl\Styles\GroupBoxDemoCtl.xaml</Link>
     </Resource>
@@ -438,6 +444,10 @@
       <Link>UserControl\Controls\ChatBubbleDemoCtl.xaml.cs</Link>
       <DependentUpon>ChatBubbleDemoCtl.xaml</DependentUpon>
     </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\CheckComboBoxDemoCtl.xaml.cs</Link>
+      <DependentUpon>CheckComboBoxDemoCtl.xaml</DependentUpon>
+    </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\CirclePanelDemoCtl.xaml.cs">
       <Link>UserControl\Controls\CirclePanelDemoCtl.xaml.cs</Link>
       <DependentUpon>CirclePanelDemoCtl.xaml</DependentUpon>
@@ -485,6 +495,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\DrawerDemoCtl.xaml.cs">
       <Link>UserControl\Controls\DrawerDemoCtl.xaml.cs</Link>
       <DependentUpon>DrawerDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlexPanelDemoCtl.xaml.cs">
+      <Link>UserControl\Controls\FlexPanelDemoCtl.xaml.cs</Link>
+      <DependentUpon>FlexPanelDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Controls\FlipClockDemoCtl.xaml.cs">
       <Link>UserControl\Controls\FlipClockDemoCtl.xaml.cs</Link>
@@ -705,6 +719,10 @@
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\FrameDemoCtl.xaml.cs">
       <Link>UserControl\Styles\FrameDemoCtl.xaml.cs</Link>
       <DependentUpon>FrameDemoCtl.xaml</DependentUpon>
+    </Resource>
+    <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GeometryDemoCtl.xaml.cs">
+      <Link>UserControl\Styles\GeometryDemoCtl.xaml.cs</Link>
+      <DependentUpon>GeometryDemoCtl.xaml</DependentUpon>
     </Resource>
     <Resource Include="..\..\Shared\HandyControlDemo_Shared\UserControl\Styles\GroupBoxDemoCtl.xaml.cs">
       <Link>UserControl\Styles\GroupBoxDemoCtl.xaml.cs</Link>

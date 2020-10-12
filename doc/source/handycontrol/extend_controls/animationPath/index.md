@@ -4,7 +4,7 @@ title: AnimationPath 动画路径
 
 `AnimationPath`动画路径，设定`Geometry `派生类型几何图形的数据，例如`PathGeometry `、`LineGeometry `等，实现固定的路径动画效果。
 
-```xml
+```cs
 public class AnimationPath : Shape
 ```
 
@@ -49,7 +49,7 @@ public class AnimationPath : Shape
 
 设置动画重复行为，默认为`Forever`，可根据需要设置重复行为。
 
-## 继承至Shape常用属性
+## 继承自Shape常用属性
 
 | 属性名称        | 用途     |
 | --------------- | -------- |

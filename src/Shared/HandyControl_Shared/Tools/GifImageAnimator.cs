@@ -175,6 +175,7 @@ namespace HandyControl.Tools
 
                 if (!ImageInfoList.Any())
                 {
+                    AnimationThread?.Join();
                     AnimationThread = null;
                 }
             }

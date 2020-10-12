@@ -1,5 +1,5 @@
 ---
-title: DatePicker
+title: DatePicker 日期选择器
 ---
 
 DatePicker 控件允许用户通过在文本框中键入日期或使用下拉的日历控件来选择日期。
@@ -47,7 +47,7 @@ datePicker.SelectedDate = DateTime.Now;
 
 ``` XML
 <hc:DatePicker hc:InfoElement.TitleWidth="140"
-               hc:InfoElement.TitleAlignment="Left"
+               hc:InfoElement.TitlePlacement="Left"
                hc:InfoElement.Placeholder="{x:Static langs:Lang.PlsEnterContent}"
                hc:InfoElement.Title="{x:Static langs:Lang.TitleDemoStr3}" />
 ```

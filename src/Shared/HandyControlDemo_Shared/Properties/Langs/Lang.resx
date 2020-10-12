@@ -362,6 +362,7 @@
   </data>
   <data name="About" xml:space="preserve">
     <value>关于</value>
+    
   </data>
   <data name="Repository" xml:space="preserve">
     <value>代码仓库</value>
@@ -755,5 +756,14 @@
   </data>
   <data name="ImageSelector" xml:space="preserve">
     <value>图片选择器</value>
+  </data>
+  <data name="Geometry" xml:space="preserve">
+    <value>几何形状</value>
+  </data>
+  <data name="CheckComboBox" xml:space="preserve">
+    <value>多选组合框</value>
+  </data>
+  <data name="FlexPanel" xml:space="preserve">
+    <value>弹性盒子</value>
   </data>
 </root>

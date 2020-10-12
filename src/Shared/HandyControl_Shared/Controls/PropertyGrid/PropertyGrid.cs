@@ -29,8 +29,8 @@ namespace HandyControl.Controls
 
         public PropertyGrid()
         {
-            CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory));
-            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByCategory, SortByCategory, (s, e) => e.CanExecute = ShowSortButton));
+            CommandBindings.Add(new CommandBinding(ControlCommands.SortByName, SortByName, (s, e)=> e.CanExecute = ShowSortButton));
         }
 
         public virtual PropertyResolver PropertyResolver { get; } = new PropertyResolver();
@@ -93,6 +93,15 @@ namespace HandyControl.Controls
             set => SetValue(MinTitleWidthProperty, value);
         }
 
+        public static readonly DependencyProperty ShowSortButtonProperty = DependencyProperty.Register(
+            "ShowSortButton", typeof(bool), typeof(PropertyGrid), new PropertyMetadata(ValueBoxes.TrueBox));
+
+        public bool ShowSortButton
+        {
+            get => (bool) GetValue(ShowSortButtonProperty);
+            set => SetValue(ShowSortButtonProperty, value);
+        }
+
         public override void OnApplyTemplate()
         {
             if (_searchBar != null)
@@ -117,7 +126,7 @@ namespace HandyControl.Controls
         {
             if (obj == null || _itemsControl == null) return;
 
-            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj).OfType<PropertyDescriptor>()
+            _dataView = CollectionViewSource.GetDefaultView(TypeDescriptor.GetProperties(obj.GetType()).OfType<PropertyDescriptor>()
                 .Where(item => PropertyResolver.ResolveIsBrowsable(item)).Select(CreatePropertyItem)
                 .Do(item => item.InitElement()));
 

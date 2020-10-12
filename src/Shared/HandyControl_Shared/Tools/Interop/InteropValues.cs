@@ -17,7 +17,8 @@ namespace HandyControl.Tools.Interop
                 GdiPlus = "gdiplus.dll",
                 Kernel32 = "kernel32.dll",
                 Shell32 = "shell32.dll",
-                MsImg = "msimg32.dll";
+                MsImg = "msimg32.dll",
+                NTdll = "ntdll.dll";
         }
 
         internal delegate IntPtr HookProc(int code, IntPtr wParam, IntPtr lParam);
@@ -72,7 +73,9 @@ namespace HandyControl.Tools.Interop
             WM_CLIPBOARDUPDATE = 0x031D,
             WM_USER = 0x0400,
             WS_VISIBLE = 0x10000000,
+            MF_BYCOMMAND = 0x00000000,
             MF_BYPOSITION = 0x400,
+            MF_GRAYED = 0x00000001,
             MF_SEPARATOR = 0x800,
             TB_GETBUTTON = WM_USER + 23,
             TB_BUTTONCOUNT = WM_USER + 24,
@@ -81,6 +84,7 @@ namespace HandyControl.Tools.Interop
             DESKTOPVERTRES = 117,
             LOGPIXELSX = 88,
             LOGPIXELSY = 90,
+            SC_CLOSE = 0xF060,
             SC_SIZE = 0xF000,
             SC_MOVE = 0xF010,
             SC_MINIMIZE = 0xF020,
@@ -955,6 +959,18 @@ namespace HandyControl.Tools.Interop
             public uint uEdge;
             public RECT rc;
             public int lParam;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        internal struct RTL_OSVERSIONINFOEX
+        {
+            internal uint dwOSVersionInfoSize;
+            internal uint dwMajorVersion;
+            internal uint dwMinorVersion;
+            internal uint dwBuildNumber;
+            internal uint dwPlatformId;
+            [MarshalAs(UnmanagedType.ByValTStr, SizeConst = 128)]
+            internal string szCSDVersion;
         }
     }
 }
